@@ -5,8 +5,10 @@ import Main from './components/Main'
 function App() {
   return (
     <>
-      <Navbar />
-      <Main />
+      <main className="flex flex-col items-center">
+        <Navbar />
+        <Main />
+      </main>
     </>
   )
 }
