@@ -1,6 +1,6 @@
 const Main = () => {
     return (
-        <div className='bg-gradient-to-r from-cyan-500 dark:bg-gradient-to-r dark:from-black dark:to-purple-500 flex flex-col items-center justify-center min-h-screen text-center w-full'>
+        <div className='flex flex-col items-center justify-center min-h-screen text-center w-full'>
             <p className="text-7xl my-5 dark:text-white">GOATED Financial Advisor</p>
             <a 
                 key="see-models-link" 
