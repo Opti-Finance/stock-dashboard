@@ -14,13 +14,13 @@ function App() {
   const botData = [
     {
       image: bot1,
-      title: 'Slide 1',
+      title: 'Passive Aggressive Bot',
       description: 'Cillum nulla occaecat enim velit aliquip excepteur tempor ex id reprehenderit nisi ex ea. Nulla laborum voluptate consectetur aliquip consectetur incididunt enim excepteur. Ea elit aliqua sunt tempor magna mollit labore labore dolor eu aliqua sit duis. Eiusmod duis incididunt incididunt id. Cillum sit commodo in non tempor enim minim. Dolore in veniam aute ad nostrud eiusmod. Enim enim minim ad consectetur nostrud mollit eiusmod pariatur fugiat magna incididunt sit.',
       url: 'https://example.com/1',
     },
     {
       image: bot2,
-      title: 'Slide 2',
+      title: 'Mastermind Neaural Network Bot',
       description: 'Officia ut ullamco exercitation occaecat ex non cupidatat aute cillum pariatur ad. Quis esse sunt minim veniam adipisicing Lorem laboris velit esse. Exercitation voluptate do ut voluptate irure irure labore minim dolor incididunt aliqua consectetur Lorem. Fugiat laborum officia est esse aute laborum qui adipisicing officia reprehenderit incididunt pariatur id.',
       url: 'https://example.com/2',
     },
