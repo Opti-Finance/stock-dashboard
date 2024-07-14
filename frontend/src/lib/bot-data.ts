@@ -1,21 +1,17 @@
-import React from 'react';
-import { ThemeProvider } from './context/ThemeContext';
-import './index.css';
-import Navbar from './components/Navbar';
-import Main from './components/Main';
-import Models from './components/Models';
+import bot1 from '../assets/bot1.png';
+import bot2 from '../assets/bot2.png';
+import bot3 from '../assets/bot3.png';
 
-function App() {
-  const botData = [
+const botData = [
     {
       image: bot1,
-      title: 'Passive Aggressive Bot',
+      title: 'Slide 1',
       description: 'Cillum nulla occaecat enim velit aliquip excepteur tempor ex id reprehenderit nisi ex ea. Nulla laborum voluptate consectetur aliquip consectetur incididunt enim excepteur. Ea elit aliqua sunt tempor magna mollit labore labore dolor eu aliqua sit duis. Eiusmod duis incididunt incididunt id. Cillum sit commodo in non tempor enim minim. Dolore in veniam aute ad nostrud eiusmod. Enim enim minim ad consectetur nostrud mollit eiusmod pariatur fugiat magna incididunt sit.',
       url: 'https://example.com/1',
     },
     {
       image: bot2,
-      title: 'Mastermind Neaural Network Bot',
+      title: 'Slide 2',
       description: 'Officia ut ullamco exercitation occaecat ex non cupidatat aute cillum pariatur ad. Quis esse sunt minim veniam adipisicing Lorem laboris velit esse. Exercitation voluptate do ut voluptate irure irure labore minim dolor incididunt aliqua consectetur Lorem. Fugiat laborum officia est esse aute laborum qui adipisicing officia reprehenderit incididunt pariatur id.',
       url: 'https://example.com/2',
     },
@@ -27,15 +23,4 @@ function App() {
     },
   ];
 
-  return (
-    <ThemeProvider>
-      <div className="flex flex-col min-h-screen bg-gradient-to-r from-cyan-500 dark:bg-gradient-to-r dark:from-black dark:to-purple-500">
-        <Navbar />
-        <Main />
-        <Models />        
-      </div>
-    </ThemeProvider>
-  );
-}
-
-export default App;
+  export default botData
