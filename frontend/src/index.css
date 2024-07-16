@@ -17,4 +17,9 @@
   .slick-next:before {
     color: black; /* Adjust color as needed */
   }
+
+  html {
+    scroll-behavior: smooth;
+}
+
   

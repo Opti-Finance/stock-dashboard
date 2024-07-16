@@ -1,4 +1,26 @@
+import React, { useEffect } from 'react';
+
 const Main = () => {
+    useEffect(() => {
+        const handleHashChange = () => {
+            const { hash } = window.location;
+            if (hash) {
+                const element = document.querySelector(hash);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        };
+
+        handleHashChange(); 
+
+        window.addEventListener('hashchange', handleHashChange);
+
+        return () => {
+            window.removeEventListener('hashchange', handleHashChange);
+        };
+    }, []);
+
     return (
         <div className='flex flex-col items-center justify-center min-h-screen text-center w-full' id="home">
             <p className="text-7xl my-5 dark:text-white">GOATED Financial Advisor</p>
@@ -10,7 +32,7 @@ const Main = () => {
                 See Models
             </a>        
         </div>
-    )
+    );
 }
 
-export default Main
+export default Main;
