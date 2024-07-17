@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
+import { useSectionInView } from "../lib/hooks/useSectionInView"
 
 const Main = () => {
+    const { ref } = useSectionInView("Home", 0.5);
     useEffect(() => {
         const handleHashChange = () => {
             const { hash } = window.location;
@@ -22,7 +24,7 @@ const Main = () => {
     }, []);
 
     return (
-        <div className='flex flex-col items-center justify-center min-h-screen text-center w-full' id="home">
+        <div ref={ref} className='flex flex-col items-center justify-center min-h-screen text-center w-full' id="home">
             <p className="text-7xl my-5 dark:text-white">OmniFinance Solutions</p>
             <a 
                 key="see-models-link" 
