@@ -22,21 +22,10 @@ function App() {
               <Route path='/register' element={<Register />} />
               <Route path='/login' element={<Login />} />
             </Routes>
+            <Footer />
           </BrowserRouter>
         </div>
       </ActiveSectionContextProvider>
-      <div className="flex flex-col min-h-screen bg-gradient-to-r from-cyan-500 dark:bg-gradient-to-r dark:from-black dark:to-purple-500">
-        <BrowserRouter>
-        <Navbar />
-          <Routes>
-            <Route path='/' element={<Homepage />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/login' element={<Login />} />
-          </Routes>
-        </BrowserRouter>
-                  
-        <Footer />
-      </div>
     </ThemeProvider>
   );
 }
