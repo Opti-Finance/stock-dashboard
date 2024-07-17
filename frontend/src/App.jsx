@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
 import Login from './components/Login';
 import Register from './components/Register';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -24,6 +25,18 @@ function App() {
           </BrowserRouter>
         </div>
       </ActiveSectionContextProvider>
+      <div className="flex flex-col min-h-screen bg-gradient-to-r from-cyan-500 dark:bg-gradient-to-r dark:from-black dark:to-purple-500">
+        <BrowserRouter>
+        <Navbar />
+          <Routes>
+            <Route path='/' element={<Homepage />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<Login />} />
+          </Routes>
+        </BrowserRouter>
+                  
+        <Footer />
+      </div>
     </ThemeProvider>
   );
 }
