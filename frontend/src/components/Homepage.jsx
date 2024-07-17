@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import Main from './Main.jsx';
 import Models from './Models.jsx';
 import About from './About.jsx';
+import ColorSwitch from './ColorSwitch.jsx';
 
 const Homepage = () => {
     const location = useLocation();
@@ -30,6 +31,13 @@ const Homepage = () => {
             <Main />
             <About />
             <Models />
+            
+            <div className='mb-20'></div>
+            <div className='mb-20'></div>
+            <div className='mb-20'></div>
+            <div className='mb-20'></div>
+            <div className='mb-20'></div>
+            <ColorSwitch />
         </>
     );
 };

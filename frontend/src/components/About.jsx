@@ -1,8 +1,13 @@
+import { useSectionInView } from "../lib/hooks/useSectionInView";
+
 const About = () => {
+    const { ref } = useSectionInView("About");
     return (
         <>
-            <h1 id="about" className="w-full dark:text-white text-5xl flex justify-center">About Us</h1>
-            <p className="w-full dark:text-white text-xl flex justify-center mt-5 mb-20">We are a goated team that builds goated products yesssir</p>
+            <h1 ref={ref} id="about" className="w-full dark:text-white text-5xl flex justify-center">About Us</h1>
+            <p className="px-50 dark:text-white text-xl flex justify-center mt-5 mb-20">
+                We are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssirWe are a goated team that builds goated products yesssir
+            </p>
         </>
     )
 }
