@@ -1,8 +1,17 @@
 import React from 'react';
 
 const Footer = () => {
+  const lightModeText = 'text-black';
+  const lightModeBg = 'bg-white';
+  const darkModeText = 'dark:text-white';
+  const darkModeBg = 'dark:bg-black';
+  const borderColor = 'border-black';
+  const hoverTextColor = 'hover:text-gray-900';
+  const hoverBgColor = 'hover:bg-black';
+  const hoverBorderColor = 'hover:border-black';
+
   return (
-    <footer className="bg-gray-900 text-white py-8">
+    <footer className={`py-8 ${lightModeBg} ${darkModeBg} ${lightModeText} ${darkModeText}`}>
       <div className="max-w-[950px] w-full mx-auto px-4">
         <div className="flex flex-wrap justify-between items-center">
           <div className="flex items-center mb-4 lg:mb-0">
@@ -25,7 +34,7 @@ const Footer = () => {
             
             <a 
               href="mailto:contact@omnifinance.com" 
-              className="border border-white text-white font-bold py-2 px-4 rounded-full hover:bg-white hover:text-gray-900 transition duration-300"
+              className={`border ${borderColor} ${lightModeText} ${darkModeText} font-bold py-2 px-4 rounded-full ${hoverTextColor} ${hoverBgColor} ${hoverBorderColor} transition duration-300`}
             >
               Contact Us
             </a>
