@@ -1,5 +1,5 @@
 import React, { useState, createContext, useContext } from "react";
-import type { SectionName } from "../lib/data/types/section"
+import type { SectionName } from "../lib/types/section"
 
 type ActiveSectionContextProviderProps = {
     children: React.ReactNode;
