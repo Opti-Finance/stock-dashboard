@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
 import Login from './components/Login';
 import Register from './components/Register';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           </Routes>
         </BrowserRouter>
                   
+        <Footer />
       </div>
     </ThemeProvider>
   );
