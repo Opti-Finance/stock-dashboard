@@ -11,9 +11,9 @@ const ColorSwitch = () => {
       aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
     >
       {theme === "light" ? (
-        <FaMoon className="text-gray-700 text-xl hover:text-indigo-600" />
+        <FaSun className="text-yellow-300 text-3xl hover:text-yellow-400" />
       ) : (
-        <FaSun className="text-yellow-300 text-xl hover:text-yellow-400" />
+        <FaMoon className="text-gray-700 text-3xl hover:text-indigo-600" />
       )}
     </button>
   );
