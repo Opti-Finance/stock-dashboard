@@ -34,7 +34,7 @@ const Footer = () => {
             
             <a 
               href="mailto:contact@omnifinance.com" 
-              className={`border ${borderColor} ${lightModeText} ${darkModeText} font-bold py-2 px-4 rounded-full ${hoverTextColor} ${hoverBgColor} ${hoverBorderColor} transition duration-300`}
+              className={`border ${borderColor} ${lightModeText} ${darkModeText} font-bold py-2 px-4 rounded-full transition duration-300`}
             >
               Contact Us
             </a>
