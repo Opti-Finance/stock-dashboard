@@ -26,4 +26,10 @@ html, body {
     scroll-behavior: smooth;
 }
 
-  
+.card-body {
+  padding: 20px;
+}
+
+.card-title{
+  font-size: 30px;
+}
