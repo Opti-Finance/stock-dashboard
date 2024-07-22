@@ -6,14 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:5173/", allowCredentials="true")
 @RestController
-@RequestMapping("/api/v1/registration")
 public class RegistrationController {
 
     @Autowired
     private RegistrationService registrationService;
 
-    @PostMapping
+    @PostMapping("/api/v1/registration")
     public ResponseEntity<String> register(@RequestBody RegistrationRequest request) {
         String result = registrationService.register(request);
         return ResponseEntity.ok(result);

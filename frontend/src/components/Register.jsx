@@ -7,7 +7,7 @@ const Register = () => {
     const [confirm, setConfirm] = useState('');
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if(password != confirm){
             setError(true);
             setErrorMessage("Passwords must match");
@@ -16,6 +16,27 @@ const Register = () => {
             console.log(`Username: ${user}\nPassword: ${password}`);
             setError(false);
             setErrorMessage("");
+        }
+        try {
+            const response = await fetch("http://localhost:8080/api/v1/registration", {
+                method: "POST",
+                headers: {
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify({
+                    username: user,
+                    password: password,
+                    email: "hmyoussef@gmail.com"
+                }),
+                credentials: "include"
+            })
+            if(response.ok){
+                console.log(response);
+            } else {
+                console.error("There was an error.")
+            }
+        } catch (e) {
+            console.error(e);
         }
     }
     return (
