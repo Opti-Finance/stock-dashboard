@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import { login, logout } from "../redux/slices/authSlice"
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from "react-router-dom";
 import { singlePageLinks } from "../lib/data/navbar-single-page-data";
@@ -9,6 +11,8 @@ const Navbar = () => {
     const { theme, toggleTheme } = useTheme();
     const { activeSection, setActiveSection, setTimeOfLastClick} = useActiveSection();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
     // const handleRegisterClick = () => {
     //     navigate('/register');
@@ -17,6 +21,11 @@ const Navbar = () => {
     // const handleLoginClick = () => {
     //     navigate('/login');
     // };
+
+    const toggleAuth = () => {
+        if (isAuthenticated) dispatch(logout())
+        else dispatch(login())
+    }
 
     return (
         <header className="z-[999] relative">
@@ -68,6 +77,7 @@ const Navbar = () => {
                                 </div> */}
                 </ul>
             </nav>
+            <div onClick={toggleAuth} className='absolute right-[100px] top-[35px] cursor-pointer'>{isAuthenticated ? "authenticated" : "not authenticated"}</div>
         </header>
     );
 }
