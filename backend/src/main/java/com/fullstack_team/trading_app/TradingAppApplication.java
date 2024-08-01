@@ -1,13 +1,13 @@
-package com.trading_app.backend;
+package com.fullstack_team.trading_app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BackendApplication {
+public class TradingAppApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BackendApplication.class, args);
+		SpringApplication.run(TradingAppApplication.class, args);
 	}
 
 }

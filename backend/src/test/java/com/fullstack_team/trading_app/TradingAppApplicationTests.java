@@ -1,10 +1,10 @@
-package com.trading_app.backend;
+package com.fullstack_team.trading_app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BackendApplicationTests {
+class TradingAppApplicationTests {
 
 	@Test
 	void contextLoads() {
