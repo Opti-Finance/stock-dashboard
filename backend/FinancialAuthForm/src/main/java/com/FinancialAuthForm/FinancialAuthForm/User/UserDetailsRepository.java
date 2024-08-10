@@ -1,5 +1,6 @@
 package com.FinancialAuthForm.FinancialAuthForm.User;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
