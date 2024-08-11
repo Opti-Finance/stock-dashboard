@@ -12,6 +12,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
+import org.springframework.web.servlet.config.annotation.CorsConfiguration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import static com.FinancialAuthForm.FinancialAuthForm.User.Permission.ADMIN_CREATE;
 import static com.FinancialAuthForm.FinancialAuthForm.User.Permission.ADMIN_DELETE;
@@ -43,6 +46,14 @@ public class SecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
+                .cors(cors -> cors.configurationSource(request -> {
+                    CorsConfiguration configuration = new CorsConfiguration();
+                    configuration.applyPermitDefaultValues();
+                    configuration.setAllowedOrigins(List.of("http://localhost:3000")); // Add your allowed origins here
+                    configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")); // Add your allowed methods here
+                    configuration.setAllowedHeaders(List.of("Authorization", "Content-Type")); // Add your allowed headers here
+                    return configuration;
+                }))
                 .authorizeHttpRequests(req ->
                         req.requestMatchers("/api/v1/auth/register", "/api/v1/auth/authenticate", "/api/v1/auth/demo-controller")
                                 .permitAll()
@@ -65,5 +76,18 @@ public class SecurityConfiguration {
         ;
 
         return http.build();
+    }
+
+    @Bean
+    public WebMvcConfigurer webMvcConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:3000") // Add your allowed origins here
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Add your allowed methods here
+                        .allowedHeaders("Authorization", "Content-Type"); // Add your allowed headers here
+            }
+        };
     }
 }
