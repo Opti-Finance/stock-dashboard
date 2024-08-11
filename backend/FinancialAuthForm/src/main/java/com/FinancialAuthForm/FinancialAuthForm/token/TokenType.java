@@ -1,2 +1,5 @@
-package com.FinancialAuthForm.FinancialAuthForm.token;public class TokenType {
+package com.FinancialAuthForm.FinancialAuthForm.token;
+
+public enum TokenType {
+    BEARER
 }
