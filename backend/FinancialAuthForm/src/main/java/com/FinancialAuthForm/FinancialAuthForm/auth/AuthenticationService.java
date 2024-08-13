@@ -1,5 +1,6 @@
 package com.FinancialAuthForm.FinancialAuthForm.auth;
 
+import com.FinancialAuthForm.FinancialAuthForm.config.JwtAuthenticationFilter;
 import com.FinancialAuthForm.FinancialAuthForm.config.JwtService;
 import com.FinancialAuthForm.FinancialAuthForm.token.*;
 import com.FinancialAuthForm.FinancialAuthForm.User.Role;
@@ -9,7 +10,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +21,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
 
@@ -28,8 +33,13 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
+    private static final Logger logger = LoggerFactory.getLogger(AuthenticationService.class);
+
 
     public AuthenticationResponse register(RegisterRequest request) {
+        if(repository.findByEmail(request.getEmail()).isPresent()){
+            throw new ResponseStatusException(HttpStatus.CONFLICT);
+        }
         if (request.getRole() == null){
             request.setRole(Role.USER);
         }

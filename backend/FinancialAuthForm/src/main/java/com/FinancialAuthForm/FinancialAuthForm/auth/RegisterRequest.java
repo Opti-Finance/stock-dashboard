@@ -1,6 +1,6 @@
 package com.FinancialAuthForm.FinancialAuthForm.auth;
 
-import  com.FinancialAuthForm.FinancialAuthForm.User.Role;
+import com.FinancialAuthForm.FinancialAuthForm.User.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

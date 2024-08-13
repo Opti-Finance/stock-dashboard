@@ -1,4 +1,6 @@
 package com.FinancialAuthForm.FinancialAuthForm.config;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.FinancialAuthForm.FinancialAuthForm.token.TokenRepository;
 import jakarta.servlet.FilterChain;
@@ -29,6 +31,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
   private final JwtService jwtService;
   private final UserDetailsService userDetailsService;
   private final TokenRepository tokenRepository;
+  private static final Logger logger = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
 
   @Override
   protected void doFilterInternal(
@@ -36,8 +39,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
       @NonNull HttpServletResponse response,
       @NonNull FilterChain filterChain
   ) throws ServletException, IOException {
-    if (request.getServletPath().contains("/api/v1/auth")) {
+    logger.info("JwtAuthenticationFilter is executing for request: {}", request.getRequestURI());
+    if (request.getServletPath().matches("/api/v1/auth/(login|register)")) {
       filterChain.doFilter(request, response);
+      logger.info("This is being triggered for login or register");
       return;
     }
     final String authHeader = request.getHeader("Authorization");
@@ -45,8 +50,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     final String userEmail;
     if (authHeader == null ||!authHeader.startsWith("Bearer ")) {
       filterChain.doFilter(request, response);
+      logger.info("check1");
       return;
     }
+
+    logger.info("\n\nFirst Checks\n\n");
+
     jwt = authHeader.substring(7);
     userEmail = jwtService.extractUsername(jwt);
     if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
@@ -54,7 +63,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
       var isTokenValid = tokenRepository.findByToken(jwt)
           .map(t -> !t.isExpired() && !t.isRevoked())
           .orElse(false);
+
+      logger.info("\n\nToken is being checked\n\n");
+
       if (jwtService.isTokenValid(jwt, userDetails) && isTokenValid) {
+
+        logger.info("\n\nToken is Valid\n\n");
+
         UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
             userDetails,
             null,
