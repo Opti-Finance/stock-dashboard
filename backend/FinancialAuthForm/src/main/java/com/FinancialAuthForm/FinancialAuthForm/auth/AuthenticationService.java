@@ -1,5 +1,4 @@
 package com.FinancialAuthForm.FinancialAuthForm.auth;
-
 import com.FinancialAuthForm.FinancialAuthForm.config.JwtAuthenticationFilter;
 import com.FinancialAuthForm.FinancialAuthForm.config.JwtService;
 import com.FinancialAuthForm.FinancialAuthForm.token.*;
@@ -22,7 +21,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.io.IOException;
 
 @Service
@@ -35,9 +33,8 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationService.class);
 
-
     public AuthenticationResponse register(RegisterRequest request) {
-        if(repository.findByEmail(request.getEmail()).isPresent()){
+        if (repository.findByEmail(request.getEmail()).isPresent()) {
             throw new ResponseStatusException(HttpStatus.CONFLICT);
         }
         if (request.getRole() == null){
