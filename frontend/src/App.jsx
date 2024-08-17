@@ -8,6 +8,7 @@ import Homepage from './components/Homepage';
 import Login from './components/Login';
 import Register from './components/Register';
 import Footer from './components/Footer';
+import SingleModel from './components/SingleModel';
 import PrivateRoute from './components/PrivateRoute';
 function App() {
 
@@ -17,15 +18,16 @@ function App() {
         <div className="flex flex-col min-h-screen bg-gradient-to-r from-cyan-500 dark:bg-gradient-to-r dark:from-black dark:to-purple-500">
           <BrowserRouter>
             <Navbar />
-            <Routes>
-              <Route path='/register' element={<Register />} />
-              <Route path='/login' element={<Login />} />
-              <Route element={<PrivateRoute />} >
-                <Route path='/' element={<Homepage />} />
-              </Route>
-            </Routes>
-            <Footer />
+              <Routes>
+                <Route path='/register' element={<Register />} />
+                <Route path='/login' element={<Login />} />
+                <Route element={<PrivateRoute />} >
+                  <Route path='/' element={<Homepage />} />
+                  <Route path="/models/:type" element={<SingleModel />} />
+                </Route>
+              </Routes>
           </BrowserRouter>
+          <Footer />
         </div>
       </ActiveSectionContextProvider>
     </ThemeProvider>

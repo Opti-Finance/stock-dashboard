@@ -41,7 +41,7 @@ const Carousel = ({ data }) => {
       <Slider {...settings}>
         {data.map((slide, index) => (
           <div key={index} className="px-2">
-            <Link to={`/models/${index+1}`}>
+            <Link to={`/models/${index+1}`} state={{slide}}>
               <div className="relative w-full aspect-[3/4] rounded-lg overflow-hidden group">
                 <img
                   src={slide.image}
